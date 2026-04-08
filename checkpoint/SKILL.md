@@ -565,7 +565,7 @@ use it as the checkpoint title. Otherwise, infer a title from the current work.
 ### Step 1: Gather state
 
 ```bash
-eval "$(~/.claude/skills/gstack/bin/gstack-slug 2>/dev/null)" && mkdir -p ~/.gstack/projects/$SLUG
+eval "$(~/.claude/skills/gstack/bin/gstack-slug 2>/dev/null)" && mkdir -p $GSTACK_PROJECTS/$SLUG
 ```
 
 Collect the current working state:
@@ -622,8 +622,8 @@ checkpoint file.
 ### Step 4: Write checkpoint file
 
 ```bash
-eval "$(~/.claude/skills/gstack/bin/gstack-slug 2>/dev/null)" && mkdir -p ~/.gstack/projects/$SLUG
-CHECKPOINT_DIR="$HOME/.gstack/projects/$SLUG/checkpoints"
+eval "$(~/.claude/skills/gstack/bin/gstack-slug 2>/dev/null)" && mkdir -p $GSTACK_PROJECTS/$SLUG
+CHECKPOINT_DIR="$GSTACK_PROJECTS/$SLUG/checkpoints"
 mkdir -p "$CHECKPOINT_DIR"
 TIMESTAMP=$(date +%Y%m%d-%H%M%S)
 echo "CHECKPOINT_DIR=$CHECKPOINT_DIR"
@@ -689,8 +689,8 @@ Duration: {duration or "unknown"}
 ### Step 1: Find checkpoints
 
 ```bash
-eval "$(~/.claude/skills/gstack/bin/gstack-slug 2>/dev/null)" && mkdir -p ~/.gstack/projects/$SLUG
-CHECKPOINT_DIR="$HOME/.gstack/projects/$SLUG/checkpoints"
+eval "$(~/.claude/skills/gstack/bin/gstack-slug 2>/dev/null)" && mkdir -p $GSTACK_PROJECTS/$SLUG
+CHECKPOINT_DIR="$GSTACK_PROJECTS/$SLUG/checkpoints"
 if [ -d "$CHECKPOINT_DIR" ]; then
   find "$CHECKPOINT_DIR" -maxdepth 1 -name "*.md" -type f 2>/dev/null | xargs ls -1t 2>/dev/null | head -20
 else
@@ -751,8 +751,8 @@ If A, summarize the first remaining work item and suggest starting there.
 ### Step 1: Gather checkpoints
 
 ```bash
-eval "$(~/.claude/skills/gstack/bin/gstack-slug 2>/dev/null)" && mkdir -p ~/.gstack/projects/$SLUG
-CHECKPOINT_DIR="$HOME/.gstack/projects/$SLUG/checkpoints"
+eval "$(~/.claude/skills/gstack/bin/gstack-slug 2>/dev/null)" && mkdir -p $GSTACK_PROJECTS/$SLUG
+CHECKPOINT_DIR="$GSTACK_PROJECTS/$SLUG/checkpoints"
 if [ -d "$CHECKPOINT_DIR" ]; then
   echo "CHECKPOINT_DIR=$CHECKPOINT_DIR"
   find "$CHECKPOINT_DIR" -maxdepth 1 -name "*.md" -type f 2>/dev/null | xargs ls -1t 2>/dev/null

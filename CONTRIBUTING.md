@@ -24,7 +24,7 @@ bin/dev-teardown               # deactivate — back to your global install
 
 gstack automatically learns from failures. At the end of every skill session, the agent
 reflects on what went wrong (CLI errors, wrong approaches, project quirks) and logs
-operational learnings to `~/.gstack/projects/{slug}/learnings.jsonl`. Future sessions
+operational learnings to `$GSTACK_PROJECTS/{slug}/learnings.jsonl`. Future sessions
 surface these learnings automatically, so gstack gets smarter on your codebase over time.
 
 No setup needed. Learnings are logged automatically. View them with `/learn`.
@@ -32,7 +32,7 @@ No setup needed. Learnings are logged automatically. View them with `/learn`.
 ### The contributor workflow
 
 1. **Use gstack normally** — operational learnings are captured automatically
-2. **Check your learnings:** `/learn` or `ls ~/.gstack/projects/*/learnings.jsonl`
+2. **Check your learnings:** `/learn` or `ls $GSTACK_PROJECTS/*/learnings.jsonl`
 3. **Fork and clone gstack** (if you haven't already)
 4. **Symlink your fork into the project where you hit the bug:**
    ```bash
